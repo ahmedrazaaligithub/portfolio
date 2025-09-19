@@ -3,21 +3,28 @@ import { ThemeContext } from "../../context/ThemeContext";
 import { FaHtml5, FaBootstrap, FaNode, FaReact } from "react-icons/fa";
 import { IoLogoCss3, IoLogoJavascript } from "react-icons/io";
 import { RiTailwindCssFill } from "react-icons/ri";
-import { SiMongodb } from "react-icons/si";
+import { SiAntdesign, SiExpress, SiFirebase, SiMongodb, SiNextdotjs } from "react-icons/si";
+import { IoLogoFirebase } from "react-icons/io5";
+import { FcNext } from "react-icons/fc";
+import { BsGithub } from "react-icons/bs";
 
 export default function MySkills() {
   const { theme } = useContext(ThemeContext);
 
   // Skills Array
   const skills = [
-    { name: "HTML", icon: <FaHtml5 size={44} color="#E34F26" /> },
     { name: "CSS", icon: <IoLogoCss3 size={44} color="#2D53E5" /> },
-    { name: "JavaScript", icon: <IoLogoJavascript size={44} color="#F7DF1E" /> },
     { name: "Bootstrap", icon: <FaBootstrap size={44} color="#8913FC" /> },
-    { name: "React.js", icon: <FaReact size={44} color="#08D9FF" /> },
     { name: "Tailwind CSS", icon: <RiTailwindCssFill size={44} color="#38BDF8" /> },
+    { name: "JavaScript", icon: <IoLogoJavascript size={44} color="#F7DF1E" /> },
+    { name: "Ant Design", icon: <SiAntdesign size={44} color="#0F70F4" /> },
+    { name: "Firebase", icon: <IoLogoFirebase size={44} color="#F4C43D" /> },
+    { name: "React.js", icon: <FaReact size={44} color="#08D9FF" /> },
+    { name: "Next.js", icon: <SiNextdotjs size={44} color={theme === "dark" ? "#fff" : "#000"} /> },
     { name: "MongoDB", icon: <SiMongodb size={44} color="#55AD47" /> },
     { name: "Node.js", icon: <FaNode size={44} color="#58A149" /> },
+    { name: "Express.js", icon: <SiExpress size={44} color={theme === "dark" ? "#fff" : "#000"} /> },
+    { name: "Git Hub", icon: <BsGithub size={44} color= {theme === "dark" ? "#fff" : "#000"} /> },
   ];
 
   return (

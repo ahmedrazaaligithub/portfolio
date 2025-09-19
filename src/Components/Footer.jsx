@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { TbBrandFiverr } from "react-icons/tb";
-import DarkLogo from "../assets/images/dark-logo.png";
-import LightLogo from "../assets/images/light-logo.png";
+import LightLogo from "../assets/images/dark_logo.png";
+import DarkLogo from "../assets/images/light_logo.png";
 import { ThemeContext } from "../context/ThemeContext";
 import { Link as ScrollLink } from "react-scroll";
 import { Link as RouterLink } from "react-router-dom";
@@ -41,7 +41,7 @@ export default function Footer() {
           <img
             className={`w-26 md:w-28 lg:w-32`}
             src={theme === "dark" ? DarkLogo : LightLogo}
-            alt="Raza Shaikh"
+            alt="Ahmed raza"
           />
 
           {/* Quick Links */}
@@ -87,7 +87,7 @@ export default function Footer() {
 
         {/* Bottom Section */}
         <p className="text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} Raza Shaikh. All rights reserved.
+          © {new Date().getFullYear()} Ahmed raza. All rights reserved.
         </p>
       </div>
     </footer>

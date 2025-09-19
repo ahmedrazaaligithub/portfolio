@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import MyPhoto from "../../assets/images/raza-shaikh3.jpg";
+import MyPhoto from "../../assets/images/ahmed-raza.jpeg";
 import { ThemeContext } from "../../context/ThemeContext";
 import { Link } from "react-scroll";
 
@@ -15,23 +15,27 @@ export default function HeroSection() {
       {/* Left Section */}
       <div
         data-aos="fade-right"
-        className="flex-1 flex flex-col gap-5 text-center lg:text-left pt-6 md:pt-0">
+        className="flex-1 flex flex-col gap-5 text-center lg:text-left pt-6 md:pt-0"
+      >
         <p className="text-lg opacity-80">👋 Hello there...</p>
-        <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-          I’m <span className="text-blue">Raza Shaikh</span>
+        <h1 className="text-4xl lg:text-4xl font-bold leading-tight">
+          I’m <span className="text-blue">Muhammad Ahmed raza</span>
         </h1>
-        <h2 className="text-2xl lg:text-3xl font-semibold">
-          I am <span className="text-blue font-bold">Frontend Developer</span>
+        <h2 className="text-2xl font-semibold">
+          A <span className="text-blue font-bold uppercase">MERN Stack Developer</span>
         </h2>
         <p className="text-base lg:text-lg opacity-80 max-w-lg mx-auto lg:mx-0">
-          Passionate about building modern, responsive, and user-friendly web
-          applications. I specialize in <b>React.js</b> and crafting seamless
-          user experiences with clean and efficient code.
+          Greetings! I am Muhammad Ahmed Raza, a professional MERN Stack
+          Developer at WH Developers, specializing in web applications using
+          React.js, Next.js, and Node.js.
         </p>
 
         {/* Buttons */}
         <div className="flex gap-4 justify-center lg:justify-start mt-4">
-          <Link to="projects" smooth={true} duration={500}
+          <Link
+            to="projects"
+            smooth={true}
+            duration={500}
             className="px-6 py-3 rounded-full bg-blue text-light font-semibold shadow-md transition transform hover:scale-105 cursor-pointer"
           >
             View Projects
@@ -39,10 +43,11 @@ export default function HeroSection() {
           <Link to="contact" smooth={true} duration={500}>
             <button
               className={`px-9 py-3 rounded-full font-semibold shadow-md transition transform hover:scale-105 cursor-pointer
-                          ${theme === "dark"
-                  ? "bg-light text-dark"
-                  : "bg-dark text-light"
-                }`}
+                          ${
+                            theme === "dark"
+                              ? "bg-light text-dark"
+                              : "bg-dark text-light"
+                          }`}
             >
               Hire Me
             </button>
@@ -53,14 +58,14 @@ export default function HeroSection() {
       {/* Right Section (Image) */}
       <div
         data-aos="flip-right"
-        className="flex-1 flex justify-center lg:justify-end">
+        className="flex-1 flex justify-center lg:justify-end"
+      >
         <img
           src={MyPhoto}
-          alt="Raza Shaikh"
+          alt="Muhammad Ahmed raza"
           className="w-48 h-48 sm:w-64 sm:h-64 lg:w-[360px] lg:h-[360px] object-cover rounded-full drop-shadow-2xl"
         />
       </div>
     </section>
-
   );
 }
