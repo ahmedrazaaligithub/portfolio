@@ -6,53 +6,34 @@ import QuizProject from "../../assets/images/react-quiz-project.png";
 import TicketProject from "../../assets/images/ticket-app.png";
 import NewHomeProject from "../../assets/images/new-home-project.png";
 import OlxProject from "../../assets/images/olx-project.png";
-import SigmaElement from "../../assets/images/sigma-element-project.png";
-
+import marsMind from "../../assets/images/mars-mind.png";
 const projects = [
   {
     id: 1,
-    title: "Sigma Element UI",
-    description: "A responsive UI for Sigma Element built with React and Tailwind CSS, featuring clean design and reusable components.",
-    img: SigmaElement,
-    tech: ["React", "Tailwind CSS", "AOS Animation"],
-    demoLink: "https://tailwind-element-sigma-ui.vercel.app/",
+    title: "AI Learning App",
+    description: "An AI-powered learning app that helps students learn more effectively.",
+    img: 'https://www.whdevelopers.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdf5kb3aua%2Fimage%2Fupload%2Fv1737279065%2FAi_Learning_slk9hn.png&w=1920&q=75',
+    tech: ["Tailwind Css","MERN Stack","TypeScript","AI"],
+    demoLink: "https://www.readupyouth.org/",
     codeLink: "https://github.com/razashaikh99/tailwind-element-sigma-ui",
   },
   {
     id: 2,
-    title: "React Quiz App",
-    description: "A dynamic quiz application built with React where users can answer multiple-choice questions and get instant feedback.",
-    img: QuizProject,
-    tech: ["React", "Tailwind Css", "JavaScript"],
-    demoLink: "https://react-quiz-app-kohl.vercel.app/",
+    title: "Ore Design",
+    description: "A design agency that helps businesses grow through creative design solutions.",
+    img: 'https://www.whdevelopers.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdf5kb3aua%2Fimage%2Fupload%2Fv1737279383%2FOre_z7u5w9.png&w=1920&q=75',
+    tech: ["Tailwind Css", "React",],
+    demoLink: "https://ore-five.vercel.app/",
     codeLink: "https://github.com/razashaikh99/React-Quiz-App",
   },
   {
     id: 3,
-    title: "Ticket Crud App",
-    description: "A ticket booking assignment using MockAPI as backend simulation. Users can create, view, update, and delete tickets seamlessly.",
-    img: TicketProject,
-    tech: ["React", "Bootstrap", "MockApi"],
-    demoLink: "https://mockapi-ticket-grand-assignment.vercel.app/",
+    title: "Mars Mind",
+    description: " One-on-One Learning Platform — where every learner deserves personalized guidance and attention.",
+    img: marsMind,
+    tech: ["Tailwind Css","MERN Stack"],
+    demoLink: "https://mars-mind.vercel.app/",
     codeLink: "https://github.com/razashaikh99/Mockapi-Ticket-Grand-Assignment",
-  },
-  {
-    id: 4,
-    title: "New Home - Real Estate",
-    description: "A responsive real estate platform showcasing property listings.",
-    img: NewHomeProject,
-    tech: ["React", "Tailwind Css", "AOS Animation"],
-    demoLink: "https://new-home-ui-tailwind.vercel.app/",
-    codeLink: "https://github.com/razashaikh99/New-Home-UI-Tailwind",
-  },
-  {
-    id: 5,
-    title: "OLX Replica",
-    description: "A frontend practice project built with Tailwind CSS replicating OLX design and layout.",
-    img: OlxProject,
-    tech: ["React", "Tailwind CSS"],
-    demoLink: "https://react-tailwind-olx-replica.vercel.app/",
-    codeLink: "https://github.com/razashaikh99/React-Tailwind-OLX-Replica",
   },
   
 ];
@@ -139,17 +120,6 @@ export default function Projects() {
                   >
                     <FiExternalLink size={16} /> Live Demo
                   </a>
-                  <a
-                    href={project.codeLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm hover:scale-105 transition ${theme === "dark"
-                      ? "bg-white hover:bg-gray-300 text-bg-dark"
-                      : "bg-bg-dark hover:bg-dark text-white"
-                      }`}
-                  >
-                    <FaGithub size={16} /> GitHub
-                  </a>
                 </div>
               </div>
             </div>
@@ -157,7 +127,7 @@ export default function Projects() {
         </div>
 
         {/* Show More / Show Less Button */}
-        <div className="text-center mt-10">
+        {/* <div className="text-center mt-10">
           <button
             onClick={() => setShowAll(!showAll)}
             className={`px-8 py-2 lg:py-3 rounded-full shadow font-semibold cursor-pointer hover:scale-105 transition ${theme === "dark"
@@ -167,7 +137,7 @@ export default function Projects() {
           >
             {showAll ? "Show Less" : "Show More"}
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

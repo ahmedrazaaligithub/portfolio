@@ -18,10 +18,10 @@ export default function Contact() {
 
     emailjs
       .sendForm(
-        "service_8ddyk1e",       // Service ID
-        "template_v35wg1b",      // Template ID
+        "service_pxfyuza",       // Service ID
+        "template_r28f0vs",      // Template ID
         form.current,
-        "chQTtwLKOOMCQP0AO"      // Public Key
+        "vjUsTrkpRIuacG_cL"      // Public Key
       )
       .then(
         () => {

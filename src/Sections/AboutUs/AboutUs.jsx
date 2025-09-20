@@ -1,4 +1,4 @@
-import MyPhoto from "../../assets/images/ahmed-raza.jpeg";
+import MyPhoto from "../../assets/images/ahmed-raza.JPG";
 import { ThemeContext } from "../../context/ThemeContext";
 import { MdEmail } from "react-icons/md";
 import { FaGithub, FaLinkedin, FaMapMarkerAlt } from "react-icons/fa";

@@ -9,6 +9,6 @@ body {
   --color-bg-dark: #110F18;
   --color-light: #FFFFFF;
   --color-bg-light: #F7F7F7;
-  --color-blue: #0061FF;
+  --color-blue: oklch(66.6% 0.179 58.318);
 }
 

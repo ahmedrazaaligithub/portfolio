@@ -48,7 +48,7 @@ export default function Navbar() {
 
         {/* ✅ GitHub external link */}
         <a
-          href="https://github.com/razashaikh99"
+          href="https://github.com/ahmedrazaaligithub"
           target="_blank"
           rel="noopener noreferrer"
         >
