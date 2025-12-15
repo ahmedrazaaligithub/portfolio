@@ -135,8 +135,8 @@ export default function Contact() {
                 type="submit"
                 disabled={loading}
                 className={`flex items-center justify-center gap-2 px-8 py-3 rounded-full shadow-lg font-semibold cursor-pointer transition transform hover:scale-105 ${theme === "dark"
-                  ? "bg-blue text-light hover:bg-blue-700"
-                  : "bg-blue text-white hover:bg-blue-700"
+                  ? "bg-blue text-light hover:bg-blue"
+                  : "bg-blue text-white hover:bg-blue"
                   } ${loading ? "opacity-70 cursor-not-allowed" : ""}`}
               >
                 {loading ? "Sending..." : <><FaPaperPlane /> Send Message</>}

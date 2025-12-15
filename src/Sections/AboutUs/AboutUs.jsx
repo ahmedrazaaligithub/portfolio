@@ -100,8 +100,8 @@ export default function AboutUs() {
                 rel="noopener noreferrer"
                 className={`px-6 py-2 lg:py-3 rounded-full shadow transition transform hover:scale-105 font-semibold cursor-pointer ${
                   theme === "dark"
-                    ? "bg-blue text-light hover:bg-blue-700"
-                    : "bg-blue text-white hover:bg-blue-700"
+                    ? "bg-blue text-light hover:bg-blue"
+                    : "bg-blue text-white hover:bg-blue"
                 }`}
               >
                 See My Resume
