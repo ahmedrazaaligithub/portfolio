@@ -16,9 +16,10 @@ export default function Contact() {
     setLoading(true);
     setStatus(null);
 
+    console.log(form.current);
     emailjs
       .sendForm(
-        "service_pxfyuza",       // Service ID
+        "service_rlz9unf",       // Service ID
         "template_r28f0vs",      // Template ID
         form.current,
         "vjUsTrkpRIuacG_cL"      // Public Key
@@ -71,7 +72,7 @@ export default function Contact() {
               <input
                 data-aos="fade-up"
                 type="text"
-                name="from_name"   // ✅ must match template
+                name="name"   // ✅ must match template
                 placeholder="Your Name"
                 required
                 className={`w-full pl-11 pr-4 py-3 rounded-xl border text-sm sm:text-base focus:outline-none focus:ring-2 transition ${theme === "dark"
@@ -87,7 +88,7 @@ export default function Contact() {
               <input
                 data-aos="fade-up"
                 type="email"
-                name="from_email"   // ✅ must match template
+                name="email"   // ✅ must match template
                 placeholder="Your Email"
                 required
                 className={`w-full pl-11 pr-4 py-3 rounded-xl border text-sm sm:text-base focus:outline-none focus:ring-2 transition ${theme === "dark"
