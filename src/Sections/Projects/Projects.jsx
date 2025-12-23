@@ -2,10 +2,10 @@ import { useContext, useState } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import { FiExternalLink } from "react-icons/fi";
 import marsMind from "../../assets/images/mars-mind.png";
-import buyerism from "../../assets/images/buyerism.png";
-import adresshelfer from "../../assets/images/adresshelfer.png";
-import sharing from "../../assets/images/sharing.png";
-import nexZero from "../../assets/images/oneleet.png";
+import buyerism from "../../assets/images/buyerism.PNG";
+import adresshelfer from "../../assets/images/adresshelfer.PNG";
+import sharing from "../../assets/images/sharing.PNG";
+import nexZero from "../../assets/images/oneleet.PNG";
 import { Link } from "react-router-dom";
 const projects = [
   {
