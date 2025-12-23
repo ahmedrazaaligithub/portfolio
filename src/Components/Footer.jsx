@@ -6,6 +6,8 @@ import DarkLogo from "../assets/images/light_logo.png";
 import { ThemeContext } from "../context/ThemeContext";
 import { Link as ScrollLink } from "react-scroll";
 import { Link as RouterLink } from "react-router-dom";
+import { X } from "lucide-react";
+import { BsTwitterX } from "react-icons/bs";
 
 // SmartLink component
 function SmartLink({ to, children, ...props }) {
@@ -70,14 +72,14 @@ export default function Footer() {
 
           {/* Social Links */}
           <div className="flex gap-4 text-xl">
-            <SmartLink to="https://github.com/razashaikh99" className="hover:text-blue-400">
+            <SmartLink to="https://github.com/ahmedrazaaligithub" className="hover:text-blue-400">
               <FaGithub />
             </SmartLink>
-            <SmartLink to="http://www.linkedin.com/in/muhammad-raza-shaikh" className="hover:text-blue-400">
+            <SmartLink to="https://www.linkedin.com/in/muhammad-ahmed-raza-479b29278/" className="hover:text-blue-400">
               <FaLinkedin />
             </SmartLink>
-            <SmartLink to="https://www.fiverr.com/razashaikh22" className="hover:text-blue-400">
-              <TbBrandFiverr />
+            <SmartLink to="https://x.com/ahmedrazaparmar" className="hover:text-blue-400">
+              <BsTwitterX/>
             </SmartLink>
           </div>
         </div>
