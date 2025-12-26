@@ -18,14 +18,6 @@ const projects = [
     demoLink: "https://adresshelfer.vercel.app/",
   },
   {
-    id: 2,
-    title: "Sharing System",
-    description: "A complete hotel management system.",
-    img: sharing,
-    tech: ["Tailwind Css", "Material UI", "React.js", ".Net"],
-    demoLink: "https://uat.mysharingsystem.com/",
-  },
-  {
     id: 3,
     title: "Buyerism",
     description: "Read Articles, participate on Surveys and analyse Products.",
