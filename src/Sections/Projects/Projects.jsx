@@ -45,7 +45,7 @@ const projects = [
       "A design agency that helps businesses grow through creative design solutions.",
     img: whdev,
     tech: ["Tailwind Css", "React"],
-    demoLink: "https://ore-five.vercel.app/",
+    demoLink: "https://www.whdevelopers.com/",
   },
   {
     id: 5,
