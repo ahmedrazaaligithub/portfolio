@@ -4,8 +4,12 @@ import { FiExternalLink } from "react-icons/fi";
 import marsMind from "../../assets/images/mars-mind.png";
 import buyerism from "../../assets/images/buyerism.PNG";
 import adresshelfer from "../../assets/images/adresshelfer.PNG";
-import sharing from "../../assets/images/sharing.PNG";
+import myspaces from "../../assets/images/myspaces.PNG";
 import nexZero from "../../assets/images/oneleet.PNG";
+import alwasiqa from "../../assets/images/alwasiqa.PNG";
+import whdev from "../../assets/images/whdev.PNG";
+import ore from "../../assets/images/ore.PNG";
+import ailearning from "../../assets/images/ailearning.PNG";
 import { Link } from "react-router-dom";
 const projects = [
   {
@@ -18,7 +22,7 @@ const projects = [
     demoLink: "https://adresshelfer.vercel.app/",
   },
   {
-    id: 3,
+    id: 2,
     title: "Buyerism",
     description: "Read Articles, participate on Surveys and analyse Products.",
     img: buyerism,
@@ -26,40 +30,67 @@ const projects = [
     demoLink: "https://www.buyerism.com/",
   },
   {
-    id: 4,
+    id: 3,
     title: "AI Learning App",
     description:
-      "An AI-powered learning app that helps students learn more effectively.",
-    img: "https://www.whdevelopers.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdf5kb3aua%2Fimage%2Fupload%2Fv1737279065%2FAi_Learning_slk9hn.png&w=1920&q=75",
+      "An AI-powered learning app that helps childrens learn more effectively.",
+    img: ailearning,
     tech: ["Tailwind Css", "MERN Stack", "TypeScript", "AI"],
     demoLink: "https://www.readupyouth.org/",
+  },
+  {
+    id: 4,
+    title: "WH Developers",
+    description:
+      "A design agency that helps businesses grow through creative design solutions.",
+    img: whdev,
+    tech: ["Tailwind Css", "React"],
+    demoLink: "https://ore-five.vercel.app/",
   },
   {
     id: 5,
     title: "Ore Design",
     description:
       "A design agency that helps businesses grow through creative design solutions.",
-    img: "https://www.whdevelopers.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdf5kb3aua%2Fimage%2Fupload%2Fv1737279383%2FOre_z7u5w9.png&w=1920&q=75",
+    img: ore,
     tech: ["Tailwind Css", "React"],
     demoLink: "https://ore-five.vercel.app/",
   },
   {
     id: 6,
-    title: "Nex Zero",
+    title: "ALWASIQA PACKAGES",
     description:
-      "A Cyber security company that helps businesses grow through creative design solutions.",
-    img: nexZero,
-    tech: ["Tailwind Css", "React"],
-    demoLink: "",
+      "offering expert guidance tailored to your adhesive tape needs.",
+    img: alwasiqa,
+    tech: ["Tailwind Css", "Next.js"],
+    demoLink: "https://alwasiqa-packages-pvt-ltd.vercel.app/",
   },
   {
     id: 7,
+    title: "My Spaces",
+    description: "Buy or rent properties with no commisions.",
+    img: myspaces,
+    tech: ["Tailwind Css", "React"],
+    demoLink: "https://myspaces.786.nl/",
+  },
+
+  {
+    id: 9,
     title: "Mars Mind",
     description:
       " One-on-One Learning Platform — where every learner deserves personalized guidance and attention.",
     img: marsMind,
     tech: ["Tailwind Css", "MERN Stack"],
     demoLink: "https://mars-mind.vercel.app/",
+  },
+  {
+    id: 8,
+    title: "Nex Zero",
+    description:
+      "A Cyber security company that helps businesses grow through creative design solutions.",
+    img: nexZero,
+    tech: ["Tailwind Css", "React"],
+    demoLink: "",
   },
 ];
 
