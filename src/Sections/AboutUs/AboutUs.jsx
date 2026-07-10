@@ -1,11 +1,11 @@
-import MyPhoto from "../../assets/images/ahmed-raza.JPG";
+import MyPhoto from "../../assets/images/graduate.jpeg";
 import { ThemeContext } from "../../context/ThemeContext";
 import { MdEmail } from "react-icons/md";
 import { FaGithub, FaLinkedin, FaMapMarkerAlt } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import MyCV from "../../../public/muhammad-ahmed-raza-resume.pdf";
+import MyCV from "../../../public/muhammad_ahmed_raza.pdf";
 
 export default function AboutUs() {
   const { theme } = useContext(ThemeContext);
@@ -32,17 +32,14 @@ export default function AboutUs() {
       </div>
 
       <div className="w-full py-8 lg:py-14 flex justify-center items-center transition-colors duration-300">
-        <div className="w-full grid grid-cols-2 md:grid-cols-3 items-start gap-12 lg:gap-25">
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 items-center gap-10 lg:gap-20">
           {/* Left Side - Image */}
-          <div
-            data-aos="flip-left"
-            className="flex justify-center items-center"
-          >
-            <div className="relative w-48 sm:w-64 md:w-72 lg:w-80">
+          <div data-aos="flip-left" className="flex justify-center">
+            <div className="w-52 sm:w-64 md:w-72 lg:w-80">
               <img
                 src={MyPhoto}
-                alt="Muhammad Ahmed raza"
-                className="rounded-xl shadow-lg w-full object-cover"
+                alt="Muhammad Ahmed Raza"
+                className="w-full rounded-2xl shadow-xl object-cover"
               />
             </div>
           </div>
@@ -73,7 +70,10 @@ export default function AboutUs() {
               </div>
               <div className="flex items-center gap-2 justify-center sm:justify-start">
                 <FaGithub size={20} />
-                <Link to="https://github.com/ahmedrazaaligithub" target="_blank">
+                <Link
+                  to="https://github.com/ahmedrazaaligithub"
+                  target="_blank"
+                >
                   <p>view github</p>
                 </Link>
               </div>

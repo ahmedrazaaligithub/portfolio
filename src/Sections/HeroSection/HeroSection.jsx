@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import MyPhoto from "../../assets/images/ahmed-raza.JPG";
+import MyPhoto from "../../assets/images/black-dress.jpeg";
 import { ThemeContext } from "../../context/ThemeContext";
 import { Link } from "react-scroll";
 

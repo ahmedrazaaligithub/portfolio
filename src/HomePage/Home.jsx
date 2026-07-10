@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import ScrollToTop from '../Components/ScrollToTop'
+import Experience from '../Sections/Experience/Experience'
 
 export default function Home() {
 
@@ -23,6 +24,7 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <AboutUs />
+      <Experience/>
       <MySkills />
       <Projects />
       <Contact />
