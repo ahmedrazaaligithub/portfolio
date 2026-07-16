@@ -25,9 +25,7 @@ export default function HeroSection() {
           A <span className="text-blue font-bold uppercase">MERN Stack Developer</span>
         </h2>
         <p className="text-base lg:text-lg opacity-80 max-w-lg mx-auto lg:mx-0">
-          Greetings! I am Muhammad Ahmed Raza, a professional MERN Stack
-          Developer at WH Developers, specializing in web applications using
-          React.js, Next.js, and Node.js.
+          Greetings! I am Muhammad Ahmed Raza, a MERN Stack Developer currently working as a Frontend Developer at DigiTrends and part-time at Techoid, specializing in web applications using React.js, Next.js, and Node.js.
         </p>
 
         {/* Buttons */}
