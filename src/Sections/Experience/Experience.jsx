@@ -19,6 +19,17 @@ export default function Experience() {
     },
     {
       role: "Frontend Developer",
+      company: "Techoid",
+      duration: "Jan 2026 - Present(Part time)",
+      points: [
+        "Building scalable React.js applications",
+        "Developing reusable UI components",
+        "Integrating REST APIs",
+        "Working with Tailwind CSS and Git",
+      ],
+    },
+    {
+      role: "Frontend Developer",
       company: "WH Developers",
       duration: "Jan 2025 - Jan  2026",
       points: [
