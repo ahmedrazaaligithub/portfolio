@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin, FaMapMarkerAlt } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import MyCV from "../../../public/muhammad_ahmed_raza.pdf";
+import MyCV from "../../../public/Muhammad_Ahmed_Raza_CV.pdf";
 
 export default function AboutUs() {
   const { theme } = useContext(ThemeContext);
