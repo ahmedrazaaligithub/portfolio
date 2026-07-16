@@ -20,7 +20,7 @@ export default function Experience() {
     {
       role: "Frontend Developer",
       company: "WH Developers",
-      duration: "Jan 2024 - Jan  2025",
+      duration: "Jan 2025 - Jan  2026",
       points: [
         "Built responsive business websites",
         "Converted Figma designs into production",
@@ -31,7 +31,7 @@ export default function Experience() {
     {
       role: "Frontend Developer",
       company: "Techoid",
-      duration: "Jan 2024 - Dec 2024",
+      duration: "Mar 2024 - Dec 2024",
       points: [
         "Developed responsive React.js/Next.js applications",
         "Collaborated with teams to deliver user-friendly solutions",
