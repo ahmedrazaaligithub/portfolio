@@ -53,9 +53,10 @@ export default function AboutUs() {
               I'm Muhammad Ahmed raza
             </h3>
             <p className="opacity-80 leading-relaxed mb-6 text-sm sm:text-base">
-              Greetings! I am Muhammad Ahmed Raza, a professional MERN Stack
-              Developer at WH Developers, specializing in web applications using
-              React.js, Next.js, and Node.js.
+              I'm a MERN Stack Developer with hands-on experience across React.js, Next.js, and
+              Node.js — currently building scalable frontend applications at DigiTrends, alongside
+              part-time frontend work at Techoid. I've previously worked with WH Developers and
+              Techoid, delivering full-stack and frontend solutions from Figma design to production.
             </p>
 
             {/* Info Grid */}
