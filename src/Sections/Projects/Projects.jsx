@@ -10,7 +10,7 @@ import alwasiqa from "../../assets/images/alwasiqa.PNG";
 import whdev from "../../assets/images/whdev.PNG";
 import ore from "../../assets/images/ore.PNG";
 import ailearning from "../../assets/images/ailearning.PNG";
-import qrinsight from "../../assets/images/qr-1.png";
+import qrinsight from "../../assets/images/qi-1.png";
 import { Link } from "react-router-dom";
 const projects = [
   {
