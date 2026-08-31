@@ -10,8 +10,18 @@ import alwasiqa from "../../assets/images/alwasiqa.PNG";
 import whdev from "../../assets/images/whdev.PNG";
 import ore from "../../assets/images/ore.PNG";
 import ailearning from "../../assets/images/ailearning.PNG";
+import qrinsight from "../../assets/images/qr-1.png";
 import { Link } from "react-router-dom";
 const projects = [
+  {
+    id: 10,
+    title: "QR Insight",
+    description:
+      "Generate QR Codes for your business with multiple packages",
+    img: qrinsight,
+    tech: ["Tailwind Css", "Next.js", "PostgreSQL"],
+    demoLink: "https://www.qrinsight.co/",
+  },
   {
     id: 1,
     title: "Adresshelfer",
