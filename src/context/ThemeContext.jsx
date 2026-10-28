@@ -1,32 +1,27 @@
-import React, { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 
+// Keep the existing context API shared by the theme controls.
+// eslint-disable-next-line react-refresh/only-export-components
 export const ThemeContext = createContext();
 
-export const ThemeProvider = ({ children }) => {
-    const [theme, setTheme] = useState("dark");
-
-    // LocalStorage se theme load ho 
-    useEffect(() => {
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme) {
-            setTheme(savedTheme);
-        }
-    }, []);
-
-    // Theme change hote hi document aur localStorage me update
-    useEffect(() => {
-        document.documentElement.classList.remove("light", "dark");
-        document.documentElement.classList.add(theme);
-        localStorage.setItem("theme", theme);
-    }, [theme]);
-
-    const toggleTheme = () => {
-        setTheme((prev) => (prev === "light" ? "dark" : "light"));
-    };
-
-    return (
-        <ThemeContext.Provider value={{ theme, toggleTheme }}>
-            {children}
-        </ThemeContext.Provider>
-    );
-};
+export function ThemeProvider({ children }) {
+  const [theme, setTheme] = useState(() =>
+    document.documentElement.classList.contains("light") ? "light" : "dark",
+  );
+  const toggleTheme = () => {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    document.documentElement.classList.toggle("light", nextTheme === "light");
+    document.documentElement.classList.toggle("dark", nextTheme === "dark");
+    try {
+      localStorage.setItem("theme", nextTheme);
+    } catch {
+      /* Theme still works without storage. */
+    }
+    setTheme(nextTheme);
+  };
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+}

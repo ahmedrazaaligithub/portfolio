@@ -1,127 +1,125 @@
-import React, { useState, useContext, useEffect } from "react";
-import LightLogo from "../assets/images/dark_logo.png";
-import DarkLogo from "../assets/images/light_logo.png";
-import { FaGithub } from "react-icons/fa";
+import { useEffect, useRef, useState } from "react";
+import { HiMenuAlt4, HiX } from "react-icons/hi";
+import { FiArrowUpRight } from "react-icons/fi";
 import ThemeToggle from "./ThemeToggle";
-import { HiMenu, HiX } from "react-icons/hi";
-import { ThemeContext } from "../context/ThemeContext";
-import { Link } from "react-scroll";
-
+const links = [
+  ["about", "About"],
+  ["experience", "Experience"],
+  ["skills", "Skills"],
+  ["projects", "Projects"],
+];
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { theme } = useContext(ThemeContext);
-
-  // Screen resize hone pe menu close ho
+  const menuButton = useRef(null);
+  const header = useRef(null);
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
+    const media = window.matchMedia("(max-width: 700px)");
+    const resize = () => {
+      if (!media.matches) setMenuOpen(false);
+    };
+    const escape = (event) => {
+      if (event.key === "Escape" && menuOpen) {
         setMenuOpen(false);
+        menuButton.current?.focus();
       }
     };
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
+    const outside = (event) => {
+      if (!header.current?.contains(event.target)) setMenuOpen(false);
+    };
+    media.addEventListener("change", resize);
+    document.addEventListener("keydown", escape);
+    document.addEventListener("pointerdown", outside);
+    return () => {
+      media.removeEventListener("change", resize);
+      document.removeEventListener("keydown", escape);
+      document.removeEventListener("pointerdown", outside);
+    };
+  }, [menuOpen]);
+  const closeMenu = () => setMenuOpen(false);
   return (
-    <nav
-      className={`px-5 sm:px-10 md:20 lg:px-35 fixed top-0 left-0 z-50 w-full h-16 lg:h-20 flex justify-between items-center transition-colors duration-300 shadow-lg 
-            ${theme === "dark" ? "bg-bg-dark" : "bg-bg-light"}`}
-    >
-      {/* Logo */}
-      <Link
-        to="hero"
-        smooth={true}
-        duration={500}
-        className="hover:text-blue-400 transition cursor-pointer"
+    <header className="site-header" ref={header}>
+      <nav className="navbar shell" aria-label="Primary navigation">
+        <a
+          className="brand"
+          href="#hero"
+          onClick={closeMenu}
+          aria-label="Ahmed Raza, back to introduction"
+        >
+          <span className="brand-mark" aria-hidden="true">
+            a.
+          </span>{" "}
+          ahmed raza
+          <span className="muted" aria-hidden="true">
+            ↗
+          </span>
+        </a>
+        <div className="desktop-links">
+          {links.map(([id, label]) => (
+            <a key={id} href={"#" + id}>
+              {label}
+            </a>
+          ))}
+        </div>
+        <div className="nav-actions">
+          <a
+            className="text-link desktop-github"
+            href="https://github.com/ahmedrazaaligithub"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub <FiArrowUpRight aria-hidden="true" />
+          </a>
+          <ThemeToggle />
+          <a className="button nav-contact" data-magnetic href="#contact">
+            Contact Me <FiArrowUpRight aria-hidden="true" />
+          </a>
+          <button
+            ref={menuButton}
+            type="button"
+            className="icon-button menu-toggle"
+            aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? (
+              <HiX aria-hidden="true" size={22} />
+            ) : (
+              <HiMenuAlt4 aria-hidden="true" size={22} />
+            )}
+          </button>
+        </div>
+      </nav>
+      <nav
+        id="mobile-navigation"
+        className="mobile-menu"
+        aria-label="Mobile navigation"
+        hidden={!menuOpen}
+        onBlur={(event) => {
+          if (
+            !event.currentTarget.contains(event.relatedTarget) &&
+            event.relatedTarget !== menuButton.current
+          )
+            closeMenu();
+        }}
       >
-        <img
-          className="w-40 md:w-48 lg:w-55"
-          src={theme === "dark" ? DarkLogo : LightLogo}
-          alt="logo"
-        />
-      </Link>
-
-      {/* Desktop Menu */}
-      <div className="hidden md:flex gap-3 items-center">
-        <ThemeToggle />
-
-        {/* ✅ GitHub external link */}
+        {[...links, ["contact", "Contact"]].map(([id, label]) => (
+          <a key={id} href={"#" + id} onClick={closeMenu}>
+            {label}
+          </a>
+        ))}
         <a
           href="https://github.com/ahmedrazaaligithub"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => {
+            menuButton.current?.focus();
+            closeMenu();
+          }}
         >
-          <button
-            className={`w-12 h-12 flex items-center justify-center font-bold rounded-full cursor-pointer text-lg transition-colors duration-300 hover:scale-105 ${
-              theme === "dark" ? "bg-light text-dark" : "bg-dark text-light"
-            }`}
-          >
-            <FaGithub size={28} />
-          </button>
+          GitHub ↗
         </a>
-
-        {/* ✅ Contact button (scroll to section) */}
-        <Link to="contact" smooth={true} duration={500}>
-          <button
-            className={`px-8 py-3 rounded-full font-semibold shadow-md hover:scale-105 transition cursor-pointer
-                        ${
-                          theme === "dark"
-                            ? "bg-light text-dark"
-                            : "bg-dark text-light"
-                        }`}
-          >
-            Contact Me
-          </button>
-        </Link>
-      </div>
-
-      {/* Mobile Menu Button */}
-      <div className="md:hidden">
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className={`flex items-center justify-center rounded-full cursor-pointer ${
-            theme === "dark" ? "text-light" : "text-dark"
-          }`}
-        >
-          {menuOpen ? <HiX size={32} /> : <HiMenu size={32} />}
-        </button>
-      </div>
-
-      {/* Mobile Dropdown Menu */}
-      <div
-        className={`absolute top-full left-0 w-full flex justify-end px-5 gap-3 overflow-hidden transition-all duration-500 ease-in-out ${
-          menuOpen ? "max-h-40 opacity-100 py-3" : "max-h-0 opacity-0 py-0"
-        } ${theme === "dark" ? "bg-bg-dark" : "bg-bg-light"}`}
-      >
-        <ThemeToggle />
-
-        {/* ✅ GitHub external link (mobile) */}
-        <a
-          href="https://github.com/razashaikh99"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <button
-            className={`w-10 h-10 flex items-center justify-center font-bold rounded-full cursor-pointer text-lg transition-colors duration-300 hover:scale-105 ${
-              theme === "dark" ? "bg-light text-dark" : "bg-dark text-light"
-            }`}
-          >
-            <FaGithub size={24} />
-          </button>
-        </a>
-
-        {/* ✅ Contact button (scroll to section, mobile) */}
-        <Link to="contact" smooth={true} duration={500}>
-          <button
-            className={`px-6 py-2 font-bold rounded-full cursor-pointer text-md transition-colors duration-300 hover:scale-105 ${
-              theme === "dark" ? "bg-light text-dark" : "bg-dark text-light"
-            }`}
-          >
-            Contact
-          </button>
-        </Link>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 }

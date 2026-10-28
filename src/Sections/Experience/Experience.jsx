@@ -1,10 +1,8 @@
-import { useContext } from "react";
-import { ThemeContext } from "../../context/ThemeContext";
-import { FaBriefcase, FaCheckCircle } from "react-icons/fa";
+import { useRef } from "react";
+import { gsap, useGSAP } from "../../lib/motion";
 
 export default function Experience() {
-  const { theme } = useContext(ThemeContext);
-
+  const section = useRef(null);
   const experiences = [
     {
       role: "Frontend Developer",
@@ -20,7 +18,7 @@ export default function Experience() {
     {
       role: "Frontend Developer",
       company: "Techoid",
-      duration: "Jan 2026 - Present(Part time)",
+      duration: "Jan 2026 - Aug 2026 (Part-time)",
       points: [
         "Building scalable React.js applications",
         "Developing reusable UI components",
@@ -29,7 +27,7 @@ export default function Experience() {
       ],
     },
     {
-      role: "Frontend Developer",
+      role: "MERN Stack Developer",
       company: "WH Developers",
       duration: "Jan 2025 - Jan  2026",
       points: [
@@ -42,7 +40,7 @@ export default function Experience() {
     {
       role: "Frontend Developer",
       company: "Techoid",
-      duration: "Mar 2024 - Dec 2024",
+      duration: "Feb 2024 - Dec 2024",
       points: [
         "Developed responsive React.js/Next.js applications",
         "Collaborated with teams to deliver user-friendly solutions",
@@ -60,7 +58,7 @@ export default function Experience() {
     {
       role: "MERN Stack Trainee",
       company: "Saylani Mass IT Training",
-      duration: "2023 - 2024",
+      duration: "Jan 2023 - Dec 2023",
       points: [
         "Learned MongoDB, Express.js, React.js and Node.js",
         "Built full-stack projects",
@@ -77,110 +75,201 @@ export default function Experience() {
     { value: "100%", label: "Responsive Design" },
   ];
 
+  useGSAP(
+    () => {
+      const media = gsap.matchMedia();
+      media.add(
+        {
+          desktop: "(min-width: 900px)",
+          mobile: "(max-width: 899px)",
+          reduced: "(prefers-reduced-motion: reduce)",
+        },
+        (context) => {
+          if (context.conditions.reduced) return;
+          const root = section.current;
+          const list = root.querySelector(".experience-list");
+          const rows = [...list.querySelectorAll(".experience-row")];
+          const desktop = context.conditions.desktop;
+          const company = root.querySelector(".career-current-company");
+          const role = root.querySelector(".career-current-role");
+          const date = root.querySelector(".career-current-date");
+          const counter = root.querySelector(".career-current-number");
+          let active = -1;
+          root.classList.add("career-motion");
+          const updateActive = () => {
+            const readingLine = window.innerHeight * 0.48;
+            let next = 0;
+            rows.forEach((row, index) => {
+              if (row.getBoundingClientRect().top <= readingLine) next = index;
+            });
+            if (next === active) return;
+            active = next;
+            rows.forEach((row, index) => {
+              row.dataset.active = String(index === next);
+            });
+            company.textContent = experiences[next].company;
+            role.textContent = experiences[next].role;
+            date.textContent = experiences[next].duration;
+            counter.textContent = String(next + 1).padStart(2, "0");
+          };
+          updateActive();
+          const progress = gsap.timeline({
+            scrollTrigger: {
+              id: "career-progress",
+              trigger: list,
+              start: "top 48%",
+              end: "bottom 48%",
+              scrub: true,
+              invalidateOnRefresh: true,
+              onUpdate: updateActive,
+              onRefresh: updateActive,
+            },
+          });
+          progress
+            .fromTo(
+              root.querySelector(".career-rail-fill"),
+              { scaleY: 0 },
+              { scaleY: 1, ease: "none", duration: 1 },
+              0,
+            )
+            .fromTo(
+              root.querySelector(".career-index-fill"),
+              { scaleX: 0 },
+              { scaleX: 1, ease: "none", duration: 1 },
+              0,
+            );
+          rows.forEach((row, index) => {
+            gsap
+              .timeline({
+                scrollTrigger: {
+                  id: "career-chapter-" + index,
+                  trigger: row,
+                  start: "top 95%",
+                  end: "top 40%",
+                  scrub: desktop ? 0.35 : true,
+                  invalidateOnRefresh: true,
+                },
+              })
+              .fromTo(
+                row.querySelector(".career-heading-depth"),
+                { x: desktop ? 20 : 0, y: desktop ? 24 : 8 },
+                { x: 0, y: 0, ease: "power2.out", duration: 1 },
+                0,
+              )
+              .fromTo(
+                row.querySelectorAll(".career-point-depth"),
+                { x: desktop ? 12 : 0, y: desktop ? 18 : 6 },
+                {
+                  x: 0,
+                  y: 0,
+                  stagger: 0.08,
+                  duration: 0.8,
+                  ease: "power2.out",
+                },
+                0.1,
+              );
+          });
+          return () => {
+            root.classList.remove("career-motion");
+            rows.forEach((row) => {
+              delete row.dataset.active;
+            });
+            company.textContent = experiences[0].company;
+            role.textContent = experiences[0].role;
+            date.textContent = experiences[0].duration;
+            counter.textContent = "01";
+          };
+        },
+      );
+      return () => media.revert();
+    },
+    { scope: section },
+  );
+
   return (
     <section
-      name="experience"
-      className={`px-5 sm:px-10 lg:px-35 py-20 ${
-        theme === "dark"
-          ? "bg-dark text-light"
-          : "bg-light text-dark"
-      }`}
+      ref={section}
+      id="experience"
+      className="section shell"
+      aria-labelledby="experience-title"
+      tabIndex={-1}
+      data-section="experience"
     >
-      {/* Heading */}
-      <div className="text-center mb-14">
-        <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-blue">
-          Experience
-        </h2>
-        <p
-          className={`mt-4 ${
-            theme === "dark"
-              ? "text-gray-400"
-              : "text-gray-600"
-          }`}
-        >
-          My professional journey so far ✨
-        </p>
+      <div className="section-heading">
+        <div>
+          <p className="eyebrow">02 / Experience</p>
+          <h2 id="experience-title">
+            Built along
+            <br />
+            the way.
+          </h2>
+        </div>
+        <p>My professional journey so far</p>
       </div>
-
-      {/* Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-20">
-        {stats.map((item, index) => (
-          <div
-            key={index}
-            className={`rounded-2xl p-6 text-center shadow-lg ${
-              theme === "dark"
-                ? "bg-bg-dark"
-                : "bg-bg-light"
-            }`}
-          >
-            <h3 className="text-3xl font-bold text-blue">
-              {item.value}
-            </h3>
-            <p className="mt-2 text-sm">{item.label}</p>
+      <div className="stats">
+        {stats.map((item) => (
+          <div className="stat" key={item.label}>
+            <strong>{item.value}</strong>
+            <span>{item.label}</span>
           </div>
         ))}
       </div>
-
-      {/* Timeline */}
-      <div className="relative max-w-5xl mx-auto">
-        <div className="absolute left-4 md:left-1/2 top-0 h-full w-[2px] bg-blue transform md:-translate-x-1/2"></div>
-
-        {experiences.map((exp, index) => (
-          <div
-            key={index}
-            data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
-            className={`relative flex items-center mb-12 ${
-              index % 2 === 0
-                ? "md:justify-start"
-                : "md:justify-end"
-            }`}
-          >
-            {/* Dot */}
-            <div className="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-blue flex items-center justify-center transform -translate-x-1/2 z-10">
-              <FaBriefcase className="text-white text-sm" />
+      <div className="career-layout">
+        <aside className="career-index" aria-hidden="true">
+          <p className="eyebrow">Career chapters / 06</p>
+          <p className="career-index-title">
+            Learning.
+            <br />
+            Building.
+            <br />
+            Growing.
+          </p>
+          <div className="career-current">
+            <p className="career-counter">
+              <span className="career-current-number">01</span>
+              <span> / 06</span>
+            </p>
+            <p className="career-current-company">{experiences[0].company}</p>
+            <p className="career-current-role">{experiences[0].role}</p>
+            <p className="career-current-date">{experiences[0].duration}</p>
+            <div className="career-index-progress">
+              <span className="career-index-fill" />
             </div>
-
-            {/* Card */}
-            <div
-              className={`ml-12 md:ml-0 md:w-[45%] rounded-2xl p-6 shadow-lg border ${
-                theme === "dark"
-                  ? "bg-bg-dark border-gray-700"
-                  : "bg-bg-light border-gray-300"
-              }`}
-            >
-              <h3 className="text-xl font-bold">{exp.role}</h3>
-
-              <p className="text-blue font-semibold mt-1">
-                {exp.company}
-              </p>
-
-              <p
-                className={`text-sm mt-1 mb-4 ${
-                  theme === "dark"
-                    ? "text-gray-400"
-                    : "text-gray-500"
-                }`}
+          </div>
+        </aside>
+        <div className="career-track">
+          <div className="career-rail" aria-hidden="true">
+            <span className="career-rail-fill" />
+          </div>
+          <ol className="experience-list">
+            {experiences.map((exp, index) => (
+              <li
+                className="experience-row"
+                key={exp.company + exp.duration}
+                data-animate="experience-row"
               >
-                {exp.duration}
-              </p>
-
-              <ul className="space-y-2">
-                {exp.points.map((point, idx) => (
-                  <li
-                    key={idx}
-                    className="flex items-start gap-2"
-                  >
-                    <FaCheckCircle
-                      className="text-blue mt-1"
-                      size={14}
-                    />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        ))}
+                <span className="career-dot" aria-hidden="true" />
+                <p className="experience-date">
+                  <span className="career-chapter-number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  {exp.duration}
+                </p>
+                <div className="career-heading-depth">
+                  <h3>{exp.company}</h3>
+                  <p className="experience-role">{exp.role}</p>
+                </div>
+                <ul className="experience-points">
+                  {exp.points.map((point) => (
+                    <li key={point}>
+                      <span className="career-point-depth">{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ol>
+        </div>
       </div>
     </section>
   );

@@ -2,17 +2,22 @@ import { useContext } from "react";
 import { FaMoon } from "react-icons/fa";
 import { MdLightMode } from "react-icons/md";
 import { ThemeContext } from "../context/ThemeContext";
-
 export default function ThemeToggle() {
-    const { theme, toggleTheme } = useContext(ThemeContext);
-
-    return (
-        <button
-            onClick={toggleTheme}
-            className={`w-10 lg:w-12 h-10 lg:h-12 flex items-center justify-center font-bold rounded-full cursor-pointer text-lg transition-colors duration-300 hover:scale-105 
-                        ${theme === "dark" ? "bg-light text-dark" : "bg-dark text-light"}`}
-        >
-            {theme === "dark" ? <MdLightMode size={28} /> : <FaMoon size={26} />}
-        </button>
-    );
+  const { theme, toggleTheme } = useContext(ThemeContext);
+  return (
+    <button
+      type="button"
+      className="icon-button"
+      onClick={toggleTheme}
+      aria-label={
+        theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
+      }
+    >
+      {theme === "dark" ? (
+        <MdLightMode aria-hidden="true" size={18} />
+      ) : (
+        <FaMoon aria-hidden="true" size={16} />
+      )}
+    </button>
+  );
 }
