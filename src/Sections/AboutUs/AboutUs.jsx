@@ -1,6 +1,6 @@
 import MyPhoto from "../../assets/images/optimized/graduate.jpg";
 import { FiArrowUpRight, FiDownload } from "react-icons/fi";
-const resume = import.meta.env.BASE_URL + "Muhammad_Ahmed_Raza_CV.pdf";
+const resume = import.meta.env.BASE_URL + "Muhammad_Ahmed_Raza_MERN.pdf";
 export default function AboutUs() {
   return (
     <section
