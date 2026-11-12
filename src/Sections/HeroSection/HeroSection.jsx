@@ -178,10 +178,10 @@ export default function HeroSection() {
             </h1>
           </div>
           <div className="hero-details-depth">
-            <p className="hero-role">React.js / Frontend Developer</p>
+            <p className="hero-role">React.js / Mern Stack Developer</p>
             <p className="hero-copy">
               Greetings! I am Muhammad Ahmed Raza, a MERN Stack Developer
-              currently working as a Frontend Developer at DigiTrends, with previous
+              currently working at Developer at DigiTrends, with previous
               part-time experience at Techoid, specializing in web applications using
               React.js, Next.js, and Node.js.
             </p>
